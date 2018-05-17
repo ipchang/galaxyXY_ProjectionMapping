@@ -1,0 +1,3 @@
+ofxBezierWarpManager-master
+ofxOsc
+ofxXmlSettings
