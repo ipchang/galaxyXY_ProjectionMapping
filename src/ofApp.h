@@ -31,6 +31,8 @@ class ofApp : public ofBaseApp{
     
     ofImage starfieldBackgroundImage;
     
+    ofPoint point;
+    
     int mousePositionX, mousePositionY;
     
     int img_1_PositionX, img_1_PositionY;

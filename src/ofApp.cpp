@@ -27,6 +27,9 @@ void ofApp::setup(){
     
     xPos = 0;
     dX = 0;
+    
+    point.x = 0;
+    point.y = 0;
 }
 
 //--------------------------------------------------------------
@@ -35,6 +38,9 @@ void ofApp::update(){
     
     mousePositionX = ofGetMouseX();
     mousePositionY = ofGetMouseY();
+    
+    point.x = ofGetMouseX()/2;
+    point.y = ofGetMouseY()/2;
     
     img_1_PositionX = mousePositionX - 2880;
     img_1_PositionY = mousePositionY - 200;
@@ -61,6 +67,7 @@ void ofApp::draw(){
     first_fbo.begin();
     starfieldBackgroundImage.draw(img_1_PositionX, img_1_PositionY);
     starfieldBackgroundImage.draw(img_1_PositionX-9600, img_1_PositionY);
+    ofDrawSphere(point, 100);
     first_fbo.end();
     
     second_fbo.begin();
