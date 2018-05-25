@@ -42,4 +42,5 @@ class ofApp : public ofBaseApp{
     int mouseCurrentPositionX;
     int xPos, dX;
     
+    ofCamera camera;
 };

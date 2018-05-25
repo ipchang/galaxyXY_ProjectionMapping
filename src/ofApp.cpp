@@ -4,6 +4,10 @@
 void ofApp::setup(){
     starfieldBackgroundImage.load("starfield.jpg");
     
+    //test 3d camera perspective
+    //ofSetOrientation(OF_ORIENTATION_DEFAULT, false);
+    camera.enableOrtho();
+    
     first_fbo.allocate(1280, 800);
     second_fbo.allocate(1280, 800);
     third_fbo.allocate(1280, 800);
@@ -40,7 +44,7 @@ void ofApp::update(){
     mousePositionY = ofGetMouseY();
     
     point.x = ofGetMouseX()/2;
-    point.y = ofGetMouseY()/2;
+    point.y = ofGetMouseY()/2 * -1;
     
     img_1_PositionX = mousePositionX - 2880;
     img_1_PositionY = mousePositionY - 200;
@@ -56,7 +60,7 @@ void ofApp::update(){
     
     mouseCurrentPositionX = mousePositionX - xPos;
     
-    cout << mouseCurrentPositionX << endl;
+    //cout << mouseCurrentPositionX << endl;
 }
 
 //--------------------------------------------------------------
@@ -67,7 +71,9 @@ void ofApp::draw(){
     first_fbo.begin();
     starfieldBackgroundImage.draw(img_1_PositionX, img_1_PositionY);
     starfieldBackgroundImage.draw(img_1_PositionX-9600, img_1_PositionY);
+    camera.begin();
     ofDrawSphere(point, 100);
+    camera.end();
     first_fbo.end();
     
     second_fbo.begin();
